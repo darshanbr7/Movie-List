@@ -6,7 +6,7 @@ const Deatils = () => {
     <div>
         <div className="container">
             <div className="row">
-                <table className='table'>
+                <table className='table mt-4'>
                     <thead>
                         <th>MovieName</th>
                         <th>image</th>
@@ -17,10 +17,10 @@ const Deatils = () => {
                     <tbody>
                         <tr>
                             <td>{localStorage.getItem("name")}</td>
-                            <td>{localStorage.getItem("image")}</td>
+                            <td><img src={localStorage.getItem("image")} alt='image not found' /></td>
                             <td>{localStorage.getItem("rating")}</td>
                             <td>{localStorage.getItem("status")}</td>
-                            <td>{localStorage.getItem("summary")}</td>
+                            <td dangerouslySetInnerHTML={{__html:localStorage.getItem("summary")}}></td>
                             <td><button className='btn btn-success' onClick={()=>{
                                 navigate("/form")
                             }}>Book</button></td>

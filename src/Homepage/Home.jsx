@@ -14,54 +14,55 @@ const Home = () => {
              })
 
     },[])
-    console.log(detail);
+    
   return (
     <div>
         <div className="container">
             <div className="row">
-                <div className="col-md-2"></div>
-                <div className="col-md-8">
+                <div className="col-md-4"></div>
+                <div className="col-md-4">
                 <center> <h3 className='my-3' >Movie List</h3></center>
-                    <div className="card">
-                        <div className="card-body">
-                            <table className='table'>
-                                <thead>
-                                    <th>MovieName</th>
-                                    <th>Language</th>
-                                   
-                                    <th></th>
-                                </thead>
-                                <tbody>
-                                    {
-                                        detail.map((ele,index)=>{
-                                            return <tr key={index}>
-                                              <td>{ele.show.name}</td> 
-                                              <td>{ele.show.language}</td> 
+                        {
+                          detail.map((ele,index)=>{
+                                            return <div key={index} >
+                                                <div className="card my-3">
+                                                    <div className="card-header">
+                                                      <center> <h4 style={{color:"blue"}}>{ele.show.name} </h4> </center> 
+                                                    </div>
+                                                    <div className="card-body">
+                                                        <center>
+                                                        <img src={ele.show.image.medium}alt=" not found" /> 
+                                                        </center>  
+                                              </div>
+                                              <div className="card-footer">
+                                             Language : <span style={{color:"red"}}> {ele.show.language}</span>  <span className='ml-5' style={{color:"red"}}>{ele.show.rating.average}</span>/10<br/>
+                                            <span>Runtime : {ele.show.runtime} min</span>  <button className='btn btn-primary ml-5 btn-sm' onClick={()=>{
+                                                    const name=ele.show.name
+                                                    const summary=`${ele.show.summary}`
+                                                    const rating=ele.show.rating.average
+                                                    const status=ele.show.status
+                                                    const detail=ele.show.url
+                                                    const image=`${ele.show.image.medium}`
+                                                    localStorage.setItem("name",name)
+                                                    localStorage.setItem("summary",summary)
+                                                    localStorage.setItem("rating",rating)
+                                                    localStorage.setItem("status",status)
+                                                    localStorage.setItem("detail",detail)
+                                                    localStorage.setItem("image",image)
+                                                    navigate("/detail")
+                                            }}>More Details</button>
+                                              </div>
+                                              </div>
                                            
-                                             <td><button className='btn btn-primary text-white'  onClick={()=>{
-                                                const name=ele.show.name
-                                                const summary=`${ele.show.summary}`
-                                                const rating=ele.show.rating.average
-                                                const status=ele.show.status
-                                                const detail=ele.show.url
-                                                const image=`${ele.show.image.average}`
-                                                localStorage.setItem("name",name)
-                                                localStorage.setItem("summary",summary)
-                                                localStorage.setItem("rating",rating)
-                                                localStorage.setItem("status",status)
-                                                localStorage.setItem("detail",detail)
-                                                localStorage.setItem("image",image)
-                                                navigate("/detail")
-                                             }}>Details</button></td>
-                                            </tr>
+                                            
+                                            </div>
                                         })
                                     }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-2"></div>
+                               
+                    
+                    
+              </div>
+                <div className="col-md-4"></div>
             </div>
         </div>
     </div>
@@ -69,3 +70,7 @@ const Home = () => {
 }
 
 export default Home
+/*
+<td><button className='btn btn-primary text-white'  onClick={()=>{
+                                                
+                                             }}>Details</button></td>*/
