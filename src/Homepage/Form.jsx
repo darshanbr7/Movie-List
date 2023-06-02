@@ -18,11 +18,11 @@ const Form = () => {
                                 </div>
                                 <div className="form-group">
                                     <label >UserName</label>
-                                    <input type="text"  className='form-control' />
+                                    <input type="text"  className='form-control'  required/>
                                 </div>
                                 <div className="form-group">
                                     <label >No of Tickets</label>
-                                    <input type="number"  className='form-control' />
+                                    <input type="number"  className='form-control'  required/>
                                 </div>
                                 <center>
                                     <button className='btn btn-primary'> Book</button>

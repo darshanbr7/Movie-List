@@ -17,15 +17,14 @@ const Home = () => {
     
   return (
     <div>
+       <center> <h3 className='my-3' >Movie List</h3></center>
         <div className="container">
-            <div className="row">
-                <div className="col-md-4"></div>
-                <div className="col-md-4">
-                <center> <h3 className='my-3' >Movie List</h3></center>
+            <div className="row">        
+               
                         {
                           detail.map((ele,index)=>{
                                             return <div key={index} >
-                                                <div className="card my-3">
+                                                <div className="card ml-3  m-4">
                                                     <div className="card-header">
                                                       <center> <h4 style={{color:"blue"}}>{ele.show.name} </h4> </center> 
                                                     </div>
@@ -53,16 +52,10 @@ const Home = () => {
                                             }}>More Details</button>
                                               </div>
                                               </div>
-                                           
-                                            
                                             </div>
                                         })
-                                    }
-                               
-                    
-                    
-              </div>
-                <div className="col-md-4"></div>
+                                    }   
+               
             </div>
         </div>
     </div>
@@ -70,7 +63,3 @@ const Home = () => {
 }
 
 export default Home
-/*
-<td><button className='btn btn-primary text-white'  onClick={()=>{
-                                                
-                                             }}>Details</button></td>*/
